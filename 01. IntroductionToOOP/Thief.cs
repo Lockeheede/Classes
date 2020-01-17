@@ -16,8 +16,8 @@ public class Thief
 
     //Properties are variables that connect the fields to their
     //External logic versions outside the class
-    //Remember to capitalize properities normally, and use getters and setters
-    //The shortcut for properities is prop+TAB+TAB
+    //Remember to capitalize properties normally, and use getters and setters
+    //The shortcut for properties is prop+TAB+TAB
 
     public int Level { get; set; }
     public string Name { get; set; }
