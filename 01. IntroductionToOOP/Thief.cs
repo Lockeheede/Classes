@@ -1,4 +1,5 @@
 ﻿
+using System;
 //First you make the class
 public class Thief
 {
@@ -23,4 +24,17 @@ public class Thief
     public string Name { get; set; }
     public int Damage { get; set; }
     public int HealthPoints { get; set; }
+
+    //Creating methods in classes is a little different
+    //Notice there is static
+    public void Steal(string name)
+    {
+        System.Console.WriteLine($"{Name} tries to steal from {name}");
+    }
+
+    public void Attack(Thief enemy)
+    {
+        enemy.HealthPoints -= Damage;
+        Console.WriteLine($"{ Name} is attacking {enemy.Name}. { enemy.Name} now has { enemy.HealthPoints} HP left!");
+    }
 }

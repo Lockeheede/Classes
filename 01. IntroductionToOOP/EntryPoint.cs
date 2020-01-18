@@ -1,4 +1,4 @@
-﻿
+﻿//Note: Right click the Visual Studio in the start menu to open another one.
 
     public class EntryPoint
     {
@@ -14,7 +14,6 @@
         playerOne.Level = 5;
         playerOne.Damage = playerOne.Level * 3; //Note for game, this character will have 3 damage added per level 
         playerOne.HealthPoints = playerOne.Level * 50; //50 health per level
-        System.Console.WriteLine(playerOne.HealthPoints);
 
         //You can instanciate with another object, but you can create new variables
         Thief enemyOne = new Thief();
@@ -27,5 +26,9 @@
         //Make a new class file by right clicking the project in the solution explorer
         //Choose Add > Class. Make sure your class is the same name as the class you created
         //For example, this Thief class will be named Thief.cs
+
+        playerOne.Steal(enemyOne.Name);
+        playerOne.Attack(enemyOne);
+        enemyOne.Attack(playerOne);
         }
     }
