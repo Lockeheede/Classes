@@ -25,8 +25,22 @@ public class Thief
     public int Damage { get; set; }
     public int HealthPoints { get; set; }
 
+
+
+    //Constructors have access modifiers and the name of the class
+    public Thief(string name, int level, int damage, int healthPoints)//use arguments, so when you instanciate the new character you can give them their values
+    {
+        Level = level;//Set the properties to the fields
+        Name = name;
+        Damage = level * damage;
+        HealthPoints = level * healthPoints;
+    }
+    //Constuctors are used to initalized when you need to 
+    //To automatically create a constructor, type "ctor + TAB +TAB"
+
+
     //Creating methods in classes is a little different
-    //Notice there is static
+    //Notice there is no static. The objects you create can call on these methods with the dot operator
     public void Steal(string name)
     {
         System.Console.WriteLine($"{Name} tries to steal from {name}");
