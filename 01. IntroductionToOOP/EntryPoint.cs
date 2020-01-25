@@ -1,13 +1,19 @@
 ﻿//Note: Right click the Visual Studio in the start menu to open another one.
 
+using IntroductionToOOP.Characters.Body;
+//Notice I'm using this custom namespace. The description on how to use it is in the Thief.cs file
+
+
+using System;
+
     public class EntryPoint
     {
         static void Main()
         {
-        //Within the main class, you make an instance of your class
-        //This is call instanciating (There is a Thief.cs in the Solution Explorer)
-        Thief playerOne = new Thief("Lockes", 5, 3, 50);
-        Thief enemyOne = new Thief("Ratface", 10, 5, 10);
+            //Within the main class, you make an instance of your class
+            //This is call instanciating (There is a Thief.cs in the Solution Explorer)
+            Thief playerOne = new Thief("Lockes", 5, 3, 50);
+            Thief enemyOne = new Thief("Ratface", 10, 5, 10);
 
         //To access the variables of the new instance, you use the
         //dot operator
@@ -30,12 +36,18 @@
         //Choose Add > Class. Make sure your class is the same name as the class you created
         //For example, this Thief class will be named Thief.cs
 
-        playerOne.Steal(enemyOne.Name);
-        System.Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
-        playerOne.Attack(enemyOne);
-        enemyOne.Attack(playerOne);
-        System.Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+        playerOne.Level = 200;
+        Console.WriteLine(playerOne.Level);
+        //This will assign the value of the Level property of the playerOne instance to 10 and 
+        //Set the level field to 10 as well. 
+
+            playerOne.Steal(enemyOne.Name);
+            System.Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+            playerOne.Attack(enemyOne);
+            enemyOne.Attack(playerOne);
+            System.Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
 
 
+        }
     }
-}
+
