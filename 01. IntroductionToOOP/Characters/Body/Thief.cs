@@ -1,4 +1,5 @@
 ﻿
+using _01.IntroductionToOOP.Weapons.Technology;
 using System;
 //A namespace is a collection of classes. 
 //For example the System in System.Console.WriteLine(); is a namespace
@@ -23,6 +24,7 @@ namespace IntroductionToOOP.Characters.Body
         private int level;
         private int damage;
         private int healthPoints;
+        private TechKnife weapon;
         //These variables are called fields, or internal logic
         //Meaning they should only be accessed in the class
         //Also meaning they should be private
@@ -73,6 +75,7 @@ namespace IntroductionToOOP.Characters.Body
                                                                    /// shorthanded version. Only use if you are 100% certain you won't be putting
                                                                    /// more information in those blocks of code.
         public int HealthPoints { get => this.healthPoints; set => this.healthPoints = value; }
+        public TechKnife Weapon { get => this.weapon; set => this.weapon = value; }
 
         /// Note: You can change a property to read, write or read-write. To make it read only, remove the set block
         /// To make it write only, remove the get block. To make both
@@ -93,6 +96,7 @@ namespace IntroductionToOOP.Characters.Body
             this.Name = name;
             this.Damage = level * damage;
             this.HealthPoints = level * healthPoints;
+            this.Weapon = new TechKnife();
         }
         //Constuctors are used to initalized when you need to 
         //To automatically create a constructor, type "ctor + TAB +TAB"
