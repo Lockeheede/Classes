@@ -38,7 +38,7 @@ namespace IntroductionToOOP.Characters.Body
             get
             {
                 //Code inside happens when you are getting a value
-                return level;
+                return this.level;
                 //When trying to get a value from a property (Level)
                 //It returns the field (level). Properties are the
                 //barriers between the real world and fields
@@ -53,12 +53,12 @@ namespace IntroductionToOOP.Characters.Body
                 //so you validate
                 if (value >= 1 && value <= 100)
                 {
-                    level = value;
+                    this.level = value;
                 }
                 else
                 {
                     Console.WriteLine("Inappropriate level! Must be between 1 and 100. Default level 1 was set!");
-                    level = 1;
+                    this.level = 1;
                 }
                 //This sends the value back into the field
                 //The value is whatever value you set the property to
@@ -66,13 +66,13 @@ namespace IntroductionToOOP.Characters.Body
             }
                 }
    
-        public string Name { get => name; set => name = value; }
-        public int Damage { get => damage; set => damage = value; }//To get this, you select the private field variable above and select
+        public string Name { get => this.name; set => this.name = value; }
+        public int Damage { get => this.damage; set => this.damage = value; }//To get this, you select the private field variable above and select
                                                                    //The lightbulb and choose encapsulate field (but still use field)
                                                                    /// This is the same thing as the normal get and set blocks but it is a 
                                                                    /// shorthanded version. Only use if you are 100% certain you won't be putting
                                                                    /// more information in those blocks of code.
-        public int HealthPoints { get; set; }
+        public int HealthPoints { get => this.healthPoints; set => this.healthPoints = value; }
 
         /// Note: You can change a property to read, write or read-write. To make it read only, remove the set block
         /// To make it write only, remove the get block. To make both
@@ -89,10 +89,10 @@ namespace IntroductionToOOP.Characters.Body
         //Constructors have access modifiers and the name of the class
         public Thief(string name, int level, int damage, int healthPoints)//use arguments, so when you instanciate the new character you can give them their values
         {
-            Level = level;//Set the properties to the fields
-            Name = name;
-            Damage = level * damage;
-            HealthPoints = level * healthPoints;
+            this.Level = level;//Set the properties to the fields
+            this.Name = name;
+            this.Damage = level * damage;
+            this.HealthPoints = level * healthPoints;
         }
         //Constuctors are used to initalized when you need to 
         //To automatically create a constructor, type "ctor + TAB +TAB"
@@ -102,13 +102,17 @@ namespace IntroductionToOOP.Characters.Body
         //Notice there is no static. The objects you create can call on these methods with the dot operator
         public void Steal(string name)
         {
-            System.Console.WriteLine($"{Name} tries to steal from {name}");
+            Console.WriteLine($"{this.name} tries to steal from {name}");
+            //Use the this keyword when you have conflicting names in the arguments vs the fields
+            //For instance, private string name is at the top of the class but the Steal method has an argument that is also name
+            //The this keyword refers to the field at the top (the class)
+            //Some people tend to use underscores as well. private string _name for example
         }
 
         public void Attack(Thief enemy)
         {
             enemy.HealthPoints -= Damage;
-            Console.WriteLine($"{ Name} is attacking {enemy.Name}. { enemy.Name} now has { enemy.HealthPoints} HP left!");
+            Console.WriteLine($"{this.name} is attacking {enemy.Name}. { enemy.Name} now has { enemy.HealthPoints} HP left!");
         }
 
         //Use exceptions in extreme cases.

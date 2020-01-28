@@ -1,4 +1,6 @@
 ﻿//Note: Right click the Visual Studio in the start menu to open another one.
+//Note: Select all data and press ctrl+M+M to minimize an entire block of code 
+//this depends on where the cursor is. 
 
 using IntroductionToOOP.Characters.Body;
 //Notice I'm using this custom namespace. The description on how to use it is in the Thief.cs file
@@ -42,10 +44,10 @@ using System;
         //Set the level field to 10 as well. 
 
             playerOne.Steal(enemyOne.Name);
-            System.Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+        Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
             playerOne.Attack(enemyOne);
             enemyOne.Attack(playerOne);
-            System.Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+        Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
 
 
         }
