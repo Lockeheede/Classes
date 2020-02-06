@@ -21,6 +21,14 @@ namespace IntroductionToOOP.Characters.Body
         //The access modifiers need to be public 
         //So the class can be accessed by methods, etc
         private string name;
+        private readonly int ID;//A read only const cannot be changed and it is only accessible through constructors. It
+        //can be assigned during runtime
+        //const are another constant that cannot be changed, they are assigned right off the bat
+        private const int DEFAULT_DAMAGE = 5;
+        private const int DEFAULT_HEALTH_POINTS = 50;
+        private const int DEFAULT_LEVEL = 3;
+        private const string DEFAULT_NAME = "Remy";
+        private readonly TechKnife DEFAULT_WEAPON = new TechKnife();//const are static, so you cannot use objects, it must be read only
         private int level;
         private int damage;
         private int healthPoints;
@@ -28,6 +36,26 @@ namespace IntroductionToOOP.Characters.Body
         //These variables are called fields, or internal logic
         //Meaning they should only be accessed in the class
         //Also meaning they should be private
+
+        //Two other access modifiers are internal and protected
+        //Internal modifiers can be used between projects, but you must reference them (far right, right click reference)
+        //Protected modifiers can only be used between inherited classes. So the Characters > Body > Thief classes can access
+        //Any fields, methods, properties, variables, etc that are protected between them.
+
+        private static int idCounter; //A static can only be accessed within the class itself. See the constructors here and the EntryPoint.cs
+                                      //A static member keeps track of itself. This would be a good way to see how many versions of a class there is.
+        public static int IdCounter 
+        { 
+            get
+            {
+                return idCounter;
+            }
+            private set
+            {
+                idCounter = value;
+            }
+        }
+
 
         //Note: Alt+Shift and keys up down, etc is a mass edit
 
@@ -76,6 +104,13 @@ namespace IntroductionToOOP.Characters.Body
                                                                    /// more information in those blocks of code.
         public int HealthPoints { get => this.healthPoints; set => this.healthPoints = value; }
         public TechKnife Weapon { get => this.weapon; set => this.weapon = value; }
+        public int Id
+        {
+            get
+            {
+                return this.ID;
+            }
+        }
 
         /// Note: You can change a property to read, write or read-write. To make it read only, remove the set block
         /// To make it write only, remove the get block. To make both
@@ -92,6 +127,8 @@ namespace IntroductionToOOP.Characters.Body
         //Constructors have access modifiers and the name of the class
         public Thief(string name, int level, int damage, int healthPoints)//use arguments, so when you instanciate the new character you can give them their values
         {
+            idCounter++;
+            this.ID = IdCounter;
             this.Level = level;//Set the properties to the fields
             this.Name = name;
             this.Damage = level * damage;
@@ -100,6 +137,32 @@ namespace IntroductionToOOP.Characters.Body
         }
         //Constuctors are used to initalized when you need to 
         //To automatically create a constructor, type "ctor + TAB +TAB"
+        public Thief()
+        {
+            idCounter++;
+            this.ID = IdCounter;
+            this.Level = 1;
+            this.Name = "Remy";
+            this.Damage = 5 * level;
+            this.HealthPoints = 50 * level;
+            this.Weapon = new TechKnife();
+        }
+
+        public Thief(string name)
+        {
+            
+            idCounter++;
+            this.ID = IdCounter;
+            this.Level = 3;
+            this.Name = name;
+            this.Damage = 5 * level;
+            this.HealthPoints = 50 * level;
+            this.Weapon = new TechKnife();
+
+        }
+        //Chain constructors to reduce redundant code!
+        //In my ThiefAndMuses2020Code, I'm not going to be using that in case of custom characters. The second overloading constructor
+        //Is beneficial for making basic, enemy or friendly characters. The only thing that will affect the changes would be the level.
 
 
         //Creating methods in classes is a little different
@@ -119,7 +182,7 @@ namespace IntroductionToOOP.Characters.Body
             Console.WriteLine($"{this.name} is attacking {enemy.Name}. { enemy.Name} now has { enemy.HealthPoints} HP left!");
         }
 
-        //Use exceptions in extreme cases.
+        //Use exceptions in extreme cases. The NotImplementedException is a placeholder until I can make methods for these skills
         public void Sneak()
         {
             throw new NotImplementedException();

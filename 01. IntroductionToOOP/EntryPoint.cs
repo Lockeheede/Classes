@@ -16,6 +16,9 @@ using System;
             //This is call instanciating (There is a Thief.cs in the Solution Explorer)
             Thief playerOne = new Thief("Lockes", 5, 3, 50);
             Thief enemyOne = new Thief("Ratface", 10, 5, 10);
+            Thief enemyTwo = new Thief();
+            Thief enemyThree = new Thief("Zidane");
+            Console.WriteLine("Number of thieves is: " + Thief.IdCounter);
 
         //To access the variables of the new instance, you use the
         //dot operator
@@ -38,18 +41,21 @@ using System;
         //Choose Add > Class. Make sure your class is the same name as the class you created
         //For example, this Thief class will be named Thief.cs
 
-        playerOne.Level = 200;
-        Console.WriteLine(playerOne.Level);
+        //playerOne.Level = 200;
+        Console.WriteLine($"{playerOne.Name} is at level " + playerOne.Level);
+        Console.WriteLine($"{enemyTwo.Name} is at level " + enemyTwo.Level);
+        Console.WriteLine($"{enemyThree.Name} is at level " + enemyThree.Level);
+        Console.WriteLine($"{enemyOne.Name} has an ID of " + enemyOne.Id);
         //This will assign the value of the Level property of the playerOne instance to 10 and 
         //Set the level field to 10 as well. 
 
-            playerOne.Steal(enemyOne.Name);
-        Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
-            playerOne.Attack(enemyOne);
-            enemyOne.Attack(playerOne);
-        Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+        /*  playerOne.Steal(enemyOne.Name);
+      Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+          playerOne.Attack(enemyOne);
+          enemyOne.Attack(playerOne);
+      Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
+      */
 
-
-        }
     }
+}
 
