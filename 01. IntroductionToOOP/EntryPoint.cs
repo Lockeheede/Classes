@@ -1,7 +1,12 @@
 ﻿//Note: Right click the Visual Studio in the start menu to open another one.
 //Note: Select all data and press ctrl+M+M to minimize an entire block of code 
 //this depends on where the cursor is. 
+//Note: All the comments for notes are in the Thief_Notes.cs
 
+
+
+using _01.IntroductionToOOP;
+using _01.IntroductionToOOP.Characters.Spirit;
 using IntroductionToOOP.Characters.Body;
 //Notice I'm using this custom namespace. The description on how to use it is in the Thief.cs file
 
@@ -18,8 +23,9 @@ using System;
             Thief enemyOne = new Thief("Ratface", 10, 5, 10);
             Thief enemyTwo = new Thief();
             Thief enemyThree = new Thief("Zidane");
-            Console.WriteLine("Number of thieves is: " + Thief.IdCounter);
-
+            Muse playerTwo = new Muse("Reflex", 5, 2, 50);
+            Tools.ColorfulWriteLine("Number of thieves is: " + Thief.IdCounter, ConsoleColor.Green);
+            
         //To access the variables of the new instance, you use the
         //dot operator
         /*playerOne.Name = "Lockes";
@@ -42,10 +48,11 @@ using System;
         //For example, this Thief class will be named Thief.cs
 
         //playerOne.Level = 200;
-        Console.WriteLine($"{playerOne.Name} is at level " + playerOne.Level);
-        Console.WriteLine($"{enemyTwo.Name} is at level " + enemyTwo.Level);
-        Console.WriteLine($"{enemyThree.Name} is at level " + enemyThree.Level);
-        Console.WriteLine($"{enemyOne.Name} has an ID of " + enemyOne.Id);
+        Tools.ColorfulWriteLine($"{playerOne.Name} is at level " + playerOne.Level, ConsoleColor.Red);
+        Tools.ColorfulWriteLine($"{enemyTwo.Name} total damage is " + enemyTwo.Damage, ConsoleColor.DarkMagenta);
+        Tools.ColorfulWriteLine($"{enemyThree.Name} has " + enemyThree.HealthPoints + " health points", ConsoleColor.DarkYellow);
+        Tools.ColorfulWriteLine($"{enemyTwo.Name} has an ID of " + enemyOne.ID, ConsoleColor.Blue);
+        Tools.ColorfulWriteLine($"{playerOne.Name} has an ID of " + playerOne.ID, ConsoleColor.Blue);
         //This will assign the value of the Level property of the playerOne instance to 10 and 
         //Set the level field to 10 as well. 
 
@@ -55,6 +62,12 @@ using System;
           enemyOne.Attack(playerOne);
       Console.WriteLine($"{playerOne.Name} currently has {playerOne.HealthPoints} HP");
       */
+
+        //using the static method from the Thief.cs
+        Console.WriteLine();
+        playerTwo.Move(1000);
+       /* Thief.GetAllDefaultInformation(playerOne);*/
+        
 
     }
 }
