@@ -1,11 +1,12 @@
 ﻿using _01.IntroductionToOOP;
 using _01.IntroductionToOOP.Characters;
+using _01.IntroductionToOOP.Characters.Interfaces;
 using _01.IntroductionToOOP.Weapons.Technology;
 using System;
 
-namespace IntroductionToOOP.Characters.Body
+namespace _01.IntroductionToOOP.Characters.Body
 {
-    public class Thief : Character
+    public class Thief : Character, IDoMath
     {
     
 
@@ -104,6 +105,13 @@ namespace IntroductionToOOP.Characters.Body
         {
             speed *= 1.50;
             base.Move(speed);
+        }
+
+        public override void AddTwoNumbers()
+        {
+            int sum = base.NumberA + base.NumberB + 50;
+            sum -= 50;
+            Console.WriteLine(sum);
         }
     }
 }

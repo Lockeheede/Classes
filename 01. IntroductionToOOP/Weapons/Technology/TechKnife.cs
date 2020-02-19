@@ -2,7 +2,7 @@
 namespace _01.IntroductionToOOP.Weapons.Technology
 {
 using System;
-    public  class TechKnife
+    public  class TechKnife : Weapon 
     {
         private int damage;
 

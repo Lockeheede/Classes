@@ -1,18 +1,20 @@
-﻿using _01.IntroductionToOOP.Weapons.Technology;
-using System;
-
+﻿
 namespace _01.IntroductionToOOP.Characters.Spirit
 {
-    public class Muse : Character
+using _01.IntroductionToOOP.Characters.Interfaces;
+using _01.IntroductionToOOP.Weapons;
+using _01.IntroductionToOOP.Weapons.DarkAge;
+using _01.IntroductionToOOP.Weapons.Technology;
+using System;
+    public class Muse : Character, IDoMath, IMuse
     {
-        private readonly int ID;
-
         private const int DEFAULT_DAMAGE = 4;
         private const int DEFAULT_HEALTH_POINTS = 50;
         private const int DEFAULT_LEVEL = 10;
         private const string DEFAULT_NAME = "Reflex";
-        private readonly TechKnife DEFAULT_WEAPON = new TechKnife();
+        private readonly GlassBottle DEFAULT_WEAPON = new GlassBottle();
         
+
         public Muse (string name)
         :this(name, DEFAULT_LEVEL, DEFAULT_DAMAGE, DEFAULT_HEALTH_POINTS)
         {
@@ -27,7 +29,7 @@ namespace _01.IntroductionToOOP.Characters.Spirit
             this.Name = name;
             this.Damage = level * damage;
             this.HealthPoints = level * healthPoints;
-            this.Weapon = new TechKnife();
+            this.Weapon = new GlassBottle();
         }
         public Muse()
         {
@@ -37,7 +39,7 @@ namespace _01.IntroductionToOOP.Characters.Spirit
             this.Name = "Reflex";
             this.Damage = 4 * Level;
             this.HealthPoints = 50 * Level;
-            this.Weapon = new TechKnife();
+            this.Weapon = new GlassBottle();
         }
 
         public Muse(int damage)
@@ -50,7 +52,7 @@ namespace _01.IntroductionToOOP.Characters.Spirit
             this.Name = DEFAULT_NAME;
             this.Damage = 4 * this.Level;
             this.HealthPoints = DEFAULT_HEALTH_POINTS * this.Level;
-            this.Weapon = new TechKnife();
+            this.Weapon = new GlassBottle();
 
         }
 
@@ -69,10 +71,30 @@ namespace _01.IntroductionToOOP.Characters.Spirit
                 }
             }
         }
+
+        public int MagickPoints { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        GlassBottle IMuse.Weapon { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public override void Move(double speed)
         {
             speed *= 1.20;
             base.Move(speed);
+        }
+        public override void AddTwoNumbers()
+        {
+            int sum = base.NumberA + base.NumberB + 100;
+            sum -= 100;
+            Console.WriteLine(sum);
+        }
+
+        public void ChiBlast(Character character)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ChiRefresh()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -45,13 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Interfaces\IDoMath.cs" />
+    <Compile Include="Characters\Interfaces\IEssentialOils.cs" />
+    <Compile Include="Characters\IMuse.cs" />
     <Compile Include="Characters\Spirit\Muse.cs" />
     <Compile Include="Characters\Thief_Notes.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Characters\Body\Thief.cs" />
     <Compile Include="Tools.cs" />
+    <Compile Include="Weapons\DarkAge\GlassBottle.cs" />
     <Compile Include="Weapons\Technology\TechKnife.cs" />
+    <Compile Include="Weapons\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

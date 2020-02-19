@@ -1,18 +1,20 @@
 ﻿
 namespace _01.IntroductionToOOP.Characters
 {
-using _01.IntroductionToOOP.Weapons.Technology;
+    using _01.IntroductionToOOP.Characters.Interfaces;
+    using _01.IntroductionToOOP.Weapons;
+    using _01.IntroductionToOOP.Weapons.Technology;
 using System;
     using System.Threading;
 
-    public class Character
+    public abstract class Character : IDoMath
     {
         private int Id;
         private string name;
         private int level;
         private int damage;
         private int healthPoints;
-        private TechKnife weapon;
+        private Weapon weapon;
 
 
         private static int idCounter;
@@ -77,7 +79,10 @@ using System;
             }
 
         }
-        public TechKnife Weapon { get => this.weapon; set => this.weapon = value; }
+        private int numberA, numberB;
+        public int NumberA { get => this.numberA; set => this.numberA = value; }
+        public int NumberB { get => this.numberB; set => this.numberB = value; }
+        public Weapon Weapon { get => this.weapon; set => this.weapon = value; }
 
         protected Character()
         {
@@ -99,5 +104,8 @@ using System;
                 Thread.Sleep(Convert.ToInt32(speed));
             }
         }
+
+        public abstract void AddTwoNumbers();
+        
     }
 }
