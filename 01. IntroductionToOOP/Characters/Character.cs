@@ -7,13 +7,14 @@ namespace _01.IntroductionToOOP.Characters
 using System;
     using System.Threading;
 
-    public abstract class Character : IDoMath
+    public abstract class Character
     {
         private int Id;
         private string name;
         private int level;
         private int damage;
         private int healthPoints;
+        private int chiPoints;
         private Weapon weapon;
 
 
@@ -59,7 +60,7 @@ using System;
         }
 
         public string Name { get => this.name; set => this.name = value; }
-        public int Damage { get => this.damage; set => this.damage = value; }
+        public virtual int Damage { get => this.damage; set => this.damage = value; }
 
         //Use virtual properties in case you want to use alternate properties in another class
         //Check the Thief and Muse classes to see the override properties 
@@ -67,14 +68,18 @@ using System;
         {
             get
             {
-                return healthPoints;
+                return this.healthPoints;
             }
             set
             {
                 if(value <= 0 && value >= 100)
                 {
                     Console.WriteLine("Health Points value is inappropriate, setting default to 100!");
-                    healthPoints = 100;
+                    this.healthPoints = 100;
+                }
+                else
+                {
+                    this.healthPoints = value;
                 }
             }
 
@@ -83,8 +88,27 @@ using System;
         public int NumberA { get => this.numberA; set => this.numberA = value; }
         public int NumberB { get => this.numberB; set => this.numberB = value; }
         public Weapon Weapon { get => this.weapon; set => this.weapon = value; }
+        public int ChiPoints
+        {
+            get
+            {
+                return this.chiPoints;
+            }
+            set
+            {
+                if (value <= 0 && value >= 100)
+                {
+                    Console.WriteLine("Chi Points value is inappropriate, setting default to 0!");
+                    this.chiPoints = 0;
+                }
+                else
+                {
+                    this.chiPoints = value;
+                }
+            }
+        }
 
-        protected Character()
+protected Character()
         {
             
         }
@@ -96,16 +120,15 @@ using System;
         //You can also use virtual and override methods as well
         public virtual void Move(double speed)
         {
-            Console.WriteLine(Convert.ToInt32(speed));
-
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine("I am moving!");
-                Thread.Sleep(Convert.ToInt32(speed));
-            }
+                Console.WriteLine("I moved " + speed + " times!");           
         }
 
         public abstract void AddTwoNumbers();
-        
+
+        public void Greetings(string name)
+        {
+            Console.WriteLine($"{ this.Name} greets {name}");
+        }
     }
+   
 }

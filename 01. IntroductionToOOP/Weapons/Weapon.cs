@@ -7,7 +7,7 @@ namespace _01.IntroductionToOOP.Weapons
         private int damage;
         private int healing;
 
-        public int Damage
+        public virtual int Damage
         {
             get
             {
@@ -26,7 +26,7 @@ namespace _01.IntroductionToOOP.Weapons
                 }
             }
         }
-        public int Healing
+        public virtual int Healing
         {
             get
             {

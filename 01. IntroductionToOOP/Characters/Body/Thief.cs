@@ -103,8 +103,9 @@ namespace _01.IntroductionToOOP.Characters.Body
 
         public override void Move(double speed)
         {
-            speed *= 1.50;
-            base.Move(speed);
+            speed *= 1.75;
+            Console.WriteLine("I moved " + speed + " times! I am a Thief!");
+
         }
 
         public override void AddTwoNumbers()

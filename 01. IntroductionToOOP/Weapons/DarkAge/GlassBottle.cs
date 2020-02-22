@@ -9,7 +9,7 @@ namespace _01.IntroductionToOOP.Weapons.DarkAge
         private int damage;
         private int healing;
 
-        public int Damage
+        public override int Damage
         {
             get
             {
@@ -28,7 +28,7 @@ namespace _01.IntroductionToOOP.Weapons.DarkAge
                 }
             }
         }
-        public int Healing
+        public override int Healing
         {
             get
             {

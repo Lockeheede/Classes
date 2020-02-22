@@ -8,7 +8,7 @@
 using _01.IntroductionToOOP;
 using _01.IntroductionToOOP.Characters;
 using _01.IntroductionToOOP.Characters.Spirit;
-using IntroductionToOOP.Characters.Body;
+using _01.IntroductionToOOP.Characters.Body;
 //Notice I'm using this custom namespace. The description on how to use it is in the Thief.cs file
 
 
@@ -26,9 +26,10 @@ public class EntryPoint
             Thief enemyTwo = new Thief();
             Thief enemyThree = new Thief("Zidane");
             */
-            Muse playerTwo = new Muse("Reflex", 5, 2, 50);
+            Muse playerTwo = new Muse("Reflex", 5, 2, 50, 10);
             Character playerThree = new Thief();//Polymorphism, since the Thief class inherits from the Character class. One object acts like other objects with this pillar of OOP
 
+        
         //Tools.ColorfulWriteLine("Number of thieves is: " + Thief.IdCounter, ConsoleColor.Green);*/
 
         //To access the variables of the new instance, you use the
@@ -74,12 +75,15 @@ public class EntryPoint
         /* Thief.GetAllDefaultInformation(playerOne);*/
 
         /*Use abstraction to simplify the complexity of your code
-        You use abstraction and interfaces to partial define
-        a class. Interfaces are used to create a set of properties and methods
+        You use abstraction and interfaces to partially define
+        a class so certain uses of that class are hidden from other classes (clients)
+        Interfaces are used to create a set of properties and methods
         Implementers provide how interfaces are used. Interfaces are the what is used*/
         playerOne.NumberA = 5; playerOne.NumberB = 15;
         playerOne.AddTwoNumbers();
         /*ecapsulation is only used to show what you want to show
+         * The external logic shows what needs to be input and output
+         * All the details are *not* important
          * use the access modifiers to show information
          * this includes public, private, protected, etc*/
 
@@ -92,7 +96,25 @@ public class EntryPoint
         theCharacters.Add(playerTwo);
         theCharacters.Add(playerThree);
 
+        foreach (var character in theCharacters)
+        {
+            if(character.GetType().Name == "Thief")
+            {
+                Thief tempThief = (Thief)character;
+                Console.WriteLine(tempThief.Damage);
+            }
+        }
+        PerformGreeting(theCharacters);
+
+        playerTwo.Move(2);
         
+    }
+    public static void PerformGreeting(IEnumerable<Character> character)
+    {
+        foreach (var item in character)
+        {
+            item.Greetings("Losse");
+        }
     }
 }
 
